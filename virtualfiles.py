@@ -76,11 +76,3 @@ class File:
         )
 
 
-rootdir = Directory()
-mydir = Directory("python", rootdir)
-
-myfile = File("abc.py", "AABBCC", mydir)
-mydir = Directory("images", rootdir)
-myfile = File("123.png", "AABBCC", mydir)
-""" print(XML(mydir.contents)) """
-print(rootdir.contents)
