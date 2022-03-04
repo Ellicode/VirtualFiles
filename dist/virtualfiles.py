@@ -59,6 +59,22 @@ class File:
             if self.dir.contents[i]['FileName'] == self.filename:
                 del self.dir.contents[i]
                 break
+    def edit(self, filename, content, **kwargs ):
+        for i in range(len(self.dir.contents)):
+            if self.dir.contents[i]['FileName'] == self.filename:
+                del self.dir.contents[i]
+                break
+        self.filename = filename
+        self.content = content
+        self.kwargs = kwargs
+        self.dir.contents.append(
+            {
+                "FileName": self.filename,
+                "Content": self.content,
+                "Modified-at": datetime.datetime.now().strftime("%d %B %Y, %H:%M:%S")
+            }
+        )
+
 
 rootdir = Directory()
 mydir = Directory("python", rootdir)
